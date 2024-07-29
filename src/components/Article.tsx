@@ -1,12 +1,14 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useQueryGetStoryById} from '../apis/HttpServices';
-import Spinner from './Spinner';
+import {TestID} from '../constants/Test';
+import {ArticleStyle} from '../styles/ArticleStyle';
 import {getDate} from '../utils';
 import Comments from './Comments';
-import {ArticleStyle} from '../styles/ArticleStyle';
+import Spinner from './Spinner';
 
 type Props = {
+  testID: string;
   storyId: number;
   back: () => void;
 };
@@ -15,9 +17,9 @@ const Article = (props: Props) => {
   const {data: story, isFetching} = useQueryGetStoryById(props.storyId);
 
   return (
-    <View style={ArticleStyle.articleContainer}>
+    <View testID={props.testID} style={ArticleStyle.articleContainer}>
       {isFetching ? (
-        <Spinner />
+        <Spinner testID={TestID.spinner} />
       ) : (
         <>
           <TouchableOpacity
@@ -41,7 +43,9 @@ const Article = (props: Props) => {
             </Text>
           </View>
           <Text style={ArticleStyle.commentsHeader}>Comments:</Text>
-          {story?.data.kids && <Comments commentIds={story?.data.kids} />}
+          {story?.data.kids && (
+            <Comments testID="Comments" commentIds={story?.data.kids} />
+          )}
         </>
       )}
     </View>

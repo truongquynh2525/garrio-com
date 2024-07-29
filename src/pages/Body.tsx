@@ -4,10 +4,12 @@ import Article from '../components/Article';
 import Navigator from '../components/Navigator';
 import Spinner from '../components/Spinner';
 import Story from '../components/Story';
+import {TestID} from '../constants/Test';
 import {pageStyles} from '../styles/PageStyle';
 import {Story as IStory} from '../types/Story';
 
 type Props = {
+  testID: string;
   selectedStoryId: number;
   setSelectedStoryId: React.Dispatch<React.SetStateAction<number>>;
   stories: IStory[];
@@ -19,11 +21,12 @@ type Props = {
 };
 
 const StoryBody = ({
-  selectedStoryId,
+  testID,
   hasMore,
   isLoading,
   value,
   stories,
+  selectedStoryId,
   setPage,
   setValue,
   setSelectedStoryId,
@@ -43,19 +46,26 @@ const StoryBody = ({
       return null;
     }
 
-    return <Spinner />;
+    return <Spinner testID={TestID.spinner} />;
   };
 
   return (
     <>
-      {selectedStoryId === 0 && <Navigator value={value} setValue={setValue} />}
-      <View style={pageStyles.container}>
+      {selectedStoryId === 0 && (
+        <Navigator
+          testID={TestID.navigator}
+          value={value}
+          setValue={setValue}
+        />
+      )}
+      <View testID={testID} style={pageStyles.container}>
         {isLoading && stories.length === 0 ? (
-          <Spinner />
+          <Spinner testID={TestID.spinner} />
         ) : (
           <>
             {selectedStoryId === 0 ? (
               <FlatList
+                testID={TestID.flatList}
                 data={stories}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({item}) => (
@@ -73,7 +83,11 @@ const StoryBody = ({
                 ListFooterComponent={renderFooter}
               />
             ) : (
-              <Article storyId={selectedStoryId} back={back} />
+              <Article
+                testID={TestID.article}
+                storyId={selectedStoryId}
+                back={back}
+              />
             )}
           </>
         )}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {Story as IStory} from '../types/Story';
 import {StoryStyle} from '../styles/StoryStyle';
+import {Story as IStory} from '../types/Story';
 
 type Props = {
   story: IStory;

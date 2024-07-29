@@ -1,9 +1,9 @@
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import React, {useState} from 'react';
 import {bestStory, newStory, topStory} from '../constants/Page';
+import BestStories from './BestStories';
 import NewStories from './NewStories';
 import TopStories from './TopStories';
-import BestStories from './BestStories';
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 const queryClient = new QueryClient();
 

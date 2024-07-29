@@ -1,21 +1,23 @@
 import React from 'react';
 import {ScrollView, Text, View} from 'react-native';
-import {getDate} from '../utils';
 import {useQueryGetCommentByIds} from '../apis/HttpServices';
-import Spinner from './Spinner';
+import {TestID} from '../constants/Test';
 import {CommentsStyle} from '../styles/CommentsStyle';
+import {getDate} from '../utils';
+import Spinner from './Spinner';
 
 type Props = {
+  testID: string;
   commentIds: number[];
 };
 
-const Comments = ({commentIds}: Props) => {
+const Comments = ({commentIds, testID}: Props) => {
   const {data: comments, isFetching} = useQueryGetCommentByIds(commentIds);
 
   return (
-    <ScrollView>
+    <ScrollView testID={testID}>
       {isFetching ? (
-        <Spinner />
+        <Spinner testID={TestID.spinner} />
       ) : (
         comments?.map(comment => (
           <View key={comment.id} style={CommentsStyle.commentCard}>

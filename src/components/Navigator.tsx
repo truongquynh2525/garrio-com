@@ -1,16 +1,17 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {NavigatorStyles} from '../styles/NavigatorStyle';
 import {bestStory, newStory, topStory} from '../constants/Page';
+import {NavigatorStyles} from '../styles/NavigatorStyle';
 
 type Props = {
+  testID: string;
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Navigator = (props: Props) => {
   return (
-    <View style={NavigatorStyles.container}>
+    <View testID={props.testID} style={NavigatorStyles.container}>
       <TouchableOpacity onPress={() => props.setValue(newStory)}>
         <Text style={[NavigatorStyles.navText, NavigatorStyles.storyText]}>
           New Stories

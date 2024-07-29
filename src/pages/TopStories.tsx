@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {getTopStories} from '../apis/HttpServices';
+import {TestID} from '../constants/Test';
 import {usePaginatedStories} from '../hooks/Paginated';
 import StoryBody from './Body';
 
@@ -18,6 +19,7 @@ const TopStories = (props: Props) => {
 
   return (
     <StoryBody
+      testID={TestID.body}
       selectedStoryId={selectedStoryId}
       setSelectedStoryId={setSelectedStoryId}
       hasMore={hasMore}
