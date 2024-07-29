@@ -2,6 +2,7 @@ import {fireEvent, render, screen} from '@testing-library/react-native';
 import React from 'react';
 import {useQueryGetStoryById} from '../src/apis/HttpServices';
 import Article from '../src/components/Article';
+import {TestID} from '../src/constants/Test';
 import {Story} from '../src/types/Story';
 import {getDate} from '../src/utils';
 
@@ -37,7 +38,7 @@ describe('Article Component', () => {
       isFetching: true,
     });
 
-    render(<Article storyId={1} back={() => {}} />);
+    render(<Article testID={TestID.article} storyId={1} back={() => {}} />);
 
     expect(screen.getByTestId('Spinner')).toBeTruthy();
   });
@@ -48,7 +49,7 @@ describe('Article Component', () => {
       isFetching: false,
     });
 
-    render(<Article storyId={1} back={() => {}} />);
+    render(<Article testID={TestID.article} storyId={1} back={() => {}} />);
 
     expect(screen.getByText(`Title: ${mockStory.data.title}`)).toBeTruthy();
     expect(screen.getByText(`Score: ${mockStory.data.score}`)).toBeTruthy();
@@ -68,7 +69,7 @@ describe('Article Component', () => {
       isFetching: false,
     });
 
-    render(<Article storyId={1} back={mockBack} />);
+    render(<Article testID={TestID.article} storyId={1} back={mockBack} />);
 
     fireEvent.press(screen.getByText('← Back'));
     expect(mockBack).toHaveBeenCalled();
