@@ -8,3 +8,8 @@ export const getPaginatedElements = <T>(
 
   return array.slice(start, end);
 };
+
+export const getDate = (timestamp: number): string => {
+  const date = new Date(timestamp * 1000);
+  return date.toLocaleDateString('en-GB');
+};

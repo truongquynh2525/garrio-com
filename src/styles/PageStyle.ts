@@ -10,13 +10,6 @@ export const pageStyles = StyleSheet.create({
   spinner: {
     alignSelf: 'center',
   },
-  storyContainer: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    width: '100%',
-    justifyContent: 'flex-end',
-  },
   storyItem: {
     backgroundColor: '#F8F9FA',
     borderRadius: 10,

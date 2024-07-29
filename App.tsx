@@ -1,14 +1,14 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import Header from './src/components/Header';
 import Home from './src/pages/Home';
 
 const App = () => {
   return (
-    <ScrollView>
+    <SafeAreaView style={{flex: 1}}>
       <Header />
       <Home />
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 

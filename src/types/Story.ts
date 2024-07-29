@@ -6,6 +6,6 @@ export type Story = {
   score: number;
   time: number;
   title: string;
-  type: string;
+  type: 'story';
   url: string;
 };
