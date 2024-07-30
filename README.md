@@ -2,34 +2,57 @@
 
 **Description**: This application provides hacker news feed with three different categories: news, top, best. We can click on the article to see more information
 
-## Step 1: Start the Metro Server
+## Prerequisites:
+
+**NodeJS**: your device have been installed nodejs before. If not: go to [Node.js](https://nodejs.org/) and install. For checking: type `node -v` and `npm -v`.
+
+---
+
+**Xcode**: For building IOS application. If you already have iphone, skip this step.
+
+**CocoaPods**: For managing the dependencies of IOS. If your device has not been installed type `sudo gem install cocoapods` or go to [CocoaPods](https://cocoapods.org/) for more information.
+
+---
+
+**Android Studio**: For building Android application. If you already have android, skip this step
+
+**Android SDK**: Will be installed once install Android Studio. Just ensure that `ANDROID_HOME` environment variable is set to point to the SDK directory.
+
+---
+
+**Task**: For running the tasks defined in the project. If you have not installed, go to [TaskFile](https://taskfile.dev/) and install. For checking: type `task --version`
+
+## How to run:
+
+**Install dependencies:**:
 
 ```bash
 # using npm
-npm start
+npm install
 
-# OR using Yarn
-yarn start
+# using yarn
+yarn install
 ```
 
-## Step 2: Start your Application
-
-### For Android
+**Install IOS dependencies:**
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+cd ios
+pod install
 ```
 
-### For iOS
+**Run commands:**
 
 ```bash
-# using npm
-npm run ios
+# run ios
+task run:ios
 
-# OR using Yarn
-yarn ios
+# run android
+task run:android
+```
+
+**Run test:**
+
+```bash
+task run:test
 ```
