@@ -56,3 +56,9 @@ task run:android
 ```bash
 task run:test
 ```
+
+---
+
+### Documentations:
+
+Go to `docs` folder for more information
