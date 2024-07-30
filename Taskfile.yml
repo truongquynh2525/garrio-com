@@ -1,7 +1,7 @@
 version: '3'
 
 tasks:
-  test:
+  run:test:
     desc: 'Run al tests'
     cmds:
       - npm run test
