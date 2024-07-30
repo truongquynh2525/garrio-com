@@ -21,3 +21,25 @@ Api providers: [Hacker API](https://github.com/HackerNews/API?tab=readme-ov-file
 - **Comments of the story**: In the story information screen, in the bottom, the comments of the story will be displayed.
 
 - **Spinner**: When fetching apis from hacker. The spinner will be shown.
+
+### Demo:
+
+**New stories screen:**
+
+![New Stories](images/newStories.png)
+
+**Best stories screen:**
+
+![Best Stories](images/bestStories.png)
+
+**Top stories screen:**
+
+![Top Stories](images/topStories.png)
+
+**Spinner:**
+
+![Spinner](images/spinner.png)
+
+**Story Information:**
+
+![Story Info](images/storyInfo.png)
